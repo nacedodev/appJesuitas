@@ -22,7 +22,7 @@ class CrudLugar {
         } catch (mysqli_sql_exception $e) {
             // Verifica si el error es debido a una ip duplicada
             if ($e->getCode() === 1062) {
-                return "Error: El lugar ya existe en la base de datos.";
+                return "Error: El lugar asociado a esa IP ya existe en la base de datos.";
             } else {
                 return "Error: " . $e->getMessage();
             }

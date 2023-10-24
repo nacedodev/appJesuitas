@@ -6,11 +6,6 @@
 </head>
 <body id="modificar-form">
 <h1>Modificación del lugar</h1>
-<form method="POST">
-    <label for="ip">IP del lugar:</label>
-    <input type="text" name="ip" required>
-    <input type="submit" name="buscar" value="Buscar">
-</form>
 <?php
 require 'CrudLugar.php';
 require '../assets/config.php';
@@ -30,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
 }
 ?>
 <form method="POST" action="procesarForm.php">
-    <input type="hidden" name="ip" value="<?php echo $ip; ?>">
+    <label for="ip">IP:</label>
+    <input type="text" name="ip" value="<?php echo $ip; ?>">
     <label for="lugar">Lugar:</label>
     <input type="text" name="lugar" value="<?php echo $lugar; ?>"><br>
 

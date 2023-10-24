@@ -7,17 +7,26 @@ class CrudJesuita {
         $this->conexion = new mysqli($servername, $username, $password, $dbname);
 
         if ($this->conexion->connect_error) {
-            die("Error de conexión: " . $this->conexion->connect_error);
+            die("Error de conexión: ".$this->conexion->connect_error);
         }
     }
 
     public function altaJesuita($idJesuita, $nombre, $firma) {
-        $sql = "INSERT INTO jesuita (idJesuita,nombre, firma) VALUES ('$idJesuita','$nombre', '$firma')";
+        $sql = "INSERT INTO jesuita (idJesuita,nombre, firma) VALUES ('$idJesuita','$nombre','$firma')";
 
-        if ($this->conexion->query($sql) === TRUE) {
-            return "Jesuita creado correctamente.";
-        } else {
-            return "Error al crear Jesuita: " . $this->conexion->error;
+        try {
+            if ($this->conexion->query($sql) === TRUE) {
+                return "Jesuita creado correctamente.";
+            } else {
+                return "Error al crear Jesuita: ".$this->conexion->error;
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Verifica si el error es debido a una ip duplicada
+            if ($e->getCode() === 1062) {
+                return "Error: El Jesuita asociado a esa IP ya existe en la base de datos.";
+            } else {
+                return "Error: " . $e->getMessage();
+            }
         }
     }
 
@@ -32,7 +41,7 @@ class CrudJesuita {
                 return "No se encontró un Jesuita con el ID proporcionado.";
             }
         } else {
-            return "Error al buscar Jesuita: " . $this->conexion->error;
+            return "Error al buscar Jesuita: ".$this->conexion->error;
         }
     }
 
@@ -42,7 +51,7 @@ class CrudJesuita {
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita modificado correctamente.";
         } else {
-            return "Error al modificar Jesuita: " . $this->conexion->error;
+            return "Error al modificar Jesuita: ".$this->conexion->error;
         }
     }
 
@@ -52,7 +61,7 @@ class CrudJesuita {
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita borrado correctamente.";
         } else {
-            return "Error al borrar Jesuita: " . $this->conexion->error;
+            return "Error al borrar Jesuita: ".$this->conexion->error;
         }
     }
 

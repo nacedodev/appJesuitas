@@ -5,12 +5,6 @@
         <link rel="stylesheet" type="text/css" href="../assets/style.css">
     </head>
     <body id="modificar-form">
-        <h1>Modificación de Jesuita</h1>
-        <form method="POST">
-            <label for="idJesuita">ID del Jesuita:</label>
-            <input type="number" name="idJesuita" required>
-            <input type="submit" name="buscar" value="Buscar">
-        </form>
         <?php
         require 'CrudJesuita.php';
         require '../assets/config.php';
@@ -30,7 +24,8 @@
         }
         ?>
         <form method="POST" action="procesarForm.php">
-            <input type="hidden" name="idJesuita" value="<?php echo $idJesuita; ?>">
+            <label for="idJesuita">N° Puesto:</label>
+            <input type="text" name="idJesuita" value="<?php echo $idJesuita; ?>">
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" value="<?php echo $nombre; ?>"><br>
 

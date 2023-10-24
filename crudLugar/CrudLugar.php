@@ -6,7 +6,7 @@ class CrudLugar {
         $this->conexion = new mysqli($servername, $username, $password, $dbname);
 
         if ($this->conexion->connect_error) {
-            die("Error de conexión: " . $this->conexion->connect_error);
+            die("Error de conexión: ".$this->conexion->connect_error);
         }
     }
 
@@ -17,7 +17,7 @@ class CrudLugar {
             if ($this->conexion->query($sql) === TRUE) {
                 return "Lugar creado correctamente.";
             } else {
-                return "Error al crear Lugar: " . $this->conexion->error;
+                return "Error al crear Lugar: ".$this->conexion->error;
             }
         } catch (mysqli_sql_exception $e) {
             // Verifica si el error es debido a una ip duplicada
@@ -40,7 +40,7 @@ class CrudLugar {
                 return "No se encontró un Lugar con la IP seleccionada.";
             }
         } else {
-            return "Error al buscar Lugar: " . $this->conexion->error;
+            return "Error al buscar Lugar: ".$this->conexion->error;
         }
     }
 
@@ -50,7 +50,7 @@ class CrudLugar {
         if ($this->conexion->query($sql) === TRUE) {
             return "Lugar modificado correctamente.";
         } else {
-            return "Error al modificar Lugar: " . $this->conexion->error;
+            return "Error al modificar Lugar: ".$this->conexion->error;
         }
     }
 
@@ -60,7 +60,7 @@ class CrudLugar {
         if ($this->conexion->query($sql) === TRUE) {
             return "Lugar borrado correctamente.";
         } else {
-            return "Error al borrar Lugar: ". $this->conexion->error;
+            return "Error al borrar Lugar: ".$this->conexion->error;
         }
     }
 

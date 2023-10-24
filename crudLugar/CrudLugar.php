@@ -13,10 +13,19 @@ class CrudLugar {
     public function altaLugar($ip, $lugar, $descipcion) {
         $sql = "INSERT INTO lugar (ip,lugar, descripcion) VALUES ('$ip','$lugar', '$descipcion')";
 
-        if ($this->conexion->query($sql) === TRUE) {
-            return "Lugar creado correctamente.";
-        } else {
-            return "Error al crear Lugar: " . $this->conexion->error;
+        try {
+            if ($this->conexion->query($sql) === TRUE) {
+                return "Lugar creado correctamente.";
+            } else {
+                return "Error al crear Lugar: " . $this->conexion->error;
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Verifica si el error es debido a una ip duplicada
+            if ($e->getCode() === 1062) {
+                return "Error: El lugar ya existe en la base de datos.";
+            } else {
+                return "Error: " . $e->getMessage();
+            }
         }
     }
 

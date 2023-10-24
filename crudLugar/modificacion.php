@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>MODIFICACION</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
 </head>
 <body id="modificar-form">
 <h1>Modificación del lugar</h1>

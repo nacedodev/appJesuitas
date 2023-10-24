@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>ALTA</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
 </head>
 <body>
 <h1>ALTA</h1>

@@ -13,8 +13,9 @@
 </form>
 <?php
 require 'CrudLugar.php';
+require '../assets/config.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
-    $crud = new CrudLugar('localhost', 'root', '', 'Jesuitas');
+    $crud = new CrudLugar($host, $usuario, $password, $basedatos);
     $ip = $_POST["ip"];
     $result = $crud->buscarLugar($ip);
     if ($result->num_rows > 0) {

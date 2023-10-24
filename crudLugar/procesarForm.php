@@ -1,9 +1,6 @@
 <?php
 require 'CrudLugar.php';
-$host = 'localhost';
-$usuario = 'root';
-$password = '';
-$basedatos = 'Jesuitas';
+require '../assets/config.php';
 
     $crud = new CrudLugar($host, $usuario, $password, $basedatos);
     $accion = $_POST["accion"];

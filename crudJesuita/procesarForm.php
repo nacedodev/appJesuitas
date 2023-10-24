@@ -1,9 +1,6 @@
 <?php
+require '../assets/config.php';
 require 'CrudJesuita.php';
-$host = 'localhost';
-$usuario = 'root';
-$password = '';
-$basedatos = 'Jesuitas';
 
     $crud = new CrudJesuita($host, $usuario, $password, $basedatos);
     $accion = $_POST["accion"];

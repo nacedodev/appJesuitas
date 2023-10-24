@@ -1,9 +1,6 @@
 <?php
 require 'CrudVisita.php';
-$host = 'localhost';
-$usuario = 'root';
-$password = '';
-$basedatos = 'Jesuitas';
+require '../assets/config.php';
 
     $crud = new Visita($host, $usuario, $password, $basedatos);
     $accion = $_POST["accion"];

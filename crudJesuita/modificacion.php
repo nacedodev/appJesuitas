@@ -13,8 +13,9 @@
         </form>
         <?php
         require 'CrudJesuita.php';
+        require '../assets/config.php';
         if (isset($_POST["buscar"])) {
-            $crud = new CrudJesuita('localhost', 'root', '', 'Jesuitas');
+            $crud = new CrudJesuita($host,$usuario,$password, $basedatos);
             $idJesuita = $_POST["idJesuita"];
             $result = $crud->buscarJesuita($idJesuita);
             if ($result->num_rows > 0) {

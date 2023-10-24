@@ -14,9 +14,9 @@ class CrudLugar {
         $sql = "INSERT INTO lugar (ip,lugar, descripcion) VALUES ('$ip','$lugar', '$descipcion')";
 
         if ($this->conexion->query($sql) === TRUE) {
-            return "Jesuita creado correctamente.";
+            return "Lugar creado correctamente.";
         } else {
-            return "Error al crear Jesuita: " . $this->conexion->error;
+            return "Error al crear Lugar: " . $this->conexion->error;
         }
     }
 

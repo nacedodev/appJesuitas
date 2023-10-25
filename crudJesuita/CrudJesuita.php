@@ -30,6 +30,19 @@ class CrudJesuita {
         }
     }
 
+    public function listarJesuitas(){
+        $sql = "SELECT idJesuita, nombre, firma FROM jesuita";
+        $result = $this->conexion->query($sql);
+        if ($result){
+            if($result->num_rows > 0)
+                return $result;
+            else
+                return  "No existen Jesuitas";
+        }else{
+            return "Error al buscar Jesuitas: ".$this->conexion->error;
+        }
+    }
+
     public function buscarJesuita($idJesuita){
         $sql = "SELECT idJesuita, nombre, firma FROM jesuita WHERE idJesuita = $idJesuita";
         $result = $this->conexion->query($sql);

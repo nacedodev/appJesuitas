@@ -1,3 +1,8 @@
+body,html{
+    margin:0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -5,12 +10,24 @@ body {
 
 form {
     max-width: 400px;
-    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-top: 40px;
+    margin: 40px auto 0;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 15px;
+    max-width: 85%;
+}
+
+tr > td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 h1 {
@@ -74,4 +91,52 @@ input[type="submit"]:hover {
 
 #borrar-form:hover{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 20px red;
+}
+
+#procesos {
+    text-align: center;
+    text-shadow: 1px 1px 2px rgb(0,0,0);
+}
+
+#procesos div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#procesos a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    text-decoration: none;
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 25px 10px 10px;
+    transition: transform 0.3s;
+}
+
+#procesos a:first-child{
+    background-color:lightgreen;
+    box-shadow: 3px 3px 6px lawngreen;
+}
+
+#procesos a:nth-child(2){
+    background-color: indianred;
+    box-shadow: 3px 3px 6px crimson;
+}
+
+#procesos a:nth-child(3){
+    background-color: orange;
+    box-shadow: 3px 3px 6px darkorange;
+}
+
+#procesos a:last-child{
+    background-color: #3498db;
+    box-shadow: 3px 3px 6px #2577a9;
+
+}
+
+/* Cambia el color al pasar el ratón por encima del botón */
+#procesos a:hover {
+    transform: scale(1.02);
 }

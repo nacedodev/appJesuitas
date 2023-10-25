@@ -44,6 +44,19 @@ class CrudLugar {
         }
     }
 
+    public function listarLugares(){
+        $sql = "SELECT ip, lugar, descripcion FROM lugar";
+        $result = $this->conexion->query($sql);
+        if ($result){
+            if($result->num_rows > 0)
+                return $result;
+            else
+                return  "No existen Lugares";
+        }else{
+            return "Error al buscar Lugares: ".$this->conexion->error;
+        }
+    }
+
     public function modificarLugar($ip, $lugar, $descripcion) {
         $sql = "UPDATE lugar SET lugar = '$lugar', descripcion = '$descripcion' WHERE ip = '".$ip."';";
 

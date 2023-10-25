@@ -1,5 +1,5 @@
 <?php
-require 'CrudVisita.php';
+require 'Visita.php';
 require '../assets/config.php';
 
     $crud = new Visita($host, $usuario, $password, $basedatos);

@@ -1,6 +1,6 @@
 <?php
 require 'Visita.php';
-require '../assets/config.php';
+require '../assets/configdb.php';
 
     $crud = new Visita($host, $usuario, $password, $basedatos);
     $accion = $_POST["accion"];

@@ -1,6 +1,6 @@
 
 <?php
-require '../assets/config.php';
+require '../assets/configdb.php';
 require 'Visita.php';
 $crud = new Visita($host, $usuario, $password, $basedatos);
 ?>

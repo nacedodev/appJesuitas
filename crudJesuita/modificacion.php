@@ -7,7 +7,7 @@
     <body id="modificar-form">
         <?php
         require 'CrudJesuita.php';
-        require '../assets/config.php';
+        require '../assets/configdb.php';
         if (isset($_POST["buscar"])) {
             $crud = new CrudJesuita($host,$usuario,$password, $basedatos);
             $idJesuita = $_POST["idJesuita"];

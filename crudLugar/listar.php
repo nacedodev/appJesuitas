@@ -1,6 +1,6 @@
 
 <?php
-require '../assets/config.php';
+require '../assets/configdb.php';
 require 'CrudLugar.php';
 $crud = new CrudLugar($host, $usuario, $password, $basedatos);
 ?>

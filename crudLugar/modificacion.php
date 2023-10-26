@@ -8,7 +8,7 @@
 <h1>Modificación del lugar</h1>
 <?php
 require 'CrudLugar.php';
-require '../assets/config.php';
+require '../assets/configdb.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
     $crud = new CrudLugar($host, $usuario, $password, $basedatos);
     $ip = $_POST["ip"];

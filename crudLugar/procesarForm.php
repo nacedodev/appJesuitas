@@ -1,6 +1,6 @@
 <?php
 require 'CrudLugar.php';
-require '../assets/config.php';
+require '../assets/configdb.php';
 
     $crud = new CrudLugar($host, $usuario, $password, $basedatos);
     $accion = $_POST["accion"];

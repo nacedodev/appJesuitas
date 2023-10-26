@@ -1,8 +1,8 @@
 
 <?php
-require '../assets/configdb.php';
-require 'CrudJesuita.php';
-$crud = new CrudJesuita($host, $usuario, $password, $basedatos);
+require '../config/configdb.php';
+require 'crudJesuita.php';
+$crud = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>
 <html lang="en">

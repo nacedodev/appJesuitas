@@ -1,8 +1,8 @@
 
 <?php
-require '../assets/configdb.php';
-require 'CrudLugar.php';
-$crud = new CrudLugar($host, $usuario, $password, $basedatos);
+require '../config/configdb.php';
+require 'crudLugar.php';
+$crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@ $crud = new CrudLugar($host, $usuario, $password, $basedatos);
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<h2 style="text-align: center;">LISTADO DE JESUITAS</h2>
+<h2 style="text-align: center;">LISTADO DE LUGARES</h2>
 <table>
     <tr>
         <td colspan = "3">LUGARES</td>

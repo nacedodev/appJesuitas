@@ -6,10 +6,10 @@
     </head>
     <body id="modificar-form">
         <?php
-        require 'CrudJesuita.php';
-        require '../assets/configdb.php';
+        require 'crudJesuita.php';
+        require '../config/configdb.php';
         if (isset($_POST["buscar"])) {
-            $crud = new CrudJesuita($host,$usuario,$password, $basedatos);
+            $crud = new CrudJesuita(HOST,USUARIO,PASSWORD, BASEDATOS);
             $idJesuita = $_POST["idJesuita"];
             $result = $crud->buscarJesuita($idJesuita);
             if ($result->num_rows > 0) {

@@ -1,8 +1,8 @@
 <?php
-require 'Visita.php';
-require '../assets/configdb.php';
+require 'visita.php';
+require '../config/configdb.php';
 
-    $crud = new Visita($host, $usuario, $password, $basedatos);
+    $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     $accion = $_POST["accion"];
 
     if ($accion === "Alta") {
@@ -16,5 +16,4 @@ require '../assets/configdb.php';
             echo "IP inválida.";
         }
     }
-
     unset($crud); //ESTO ES PARA LLAMAR AL DESTRUCTOR DE LA CLASE, EN ESTE CASO PARA QUE CIERRE LA CONEXION

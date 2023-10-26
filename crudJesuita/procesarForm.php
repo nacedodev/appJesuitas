@@ -1,8 +1,8 @@
 <?php
-require '../assets/configdb.php';
-require 'CrudJesuita.php';
+require '../config/configdb.php';
+require 'crudJesuita.php';
 
-    $crud = new CrudJesuita($host, $usuario, $password, $basedatos);
+    $crud = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS);
     $accion = $_POST["accion"];
 
     if ($accion === "Alta") {

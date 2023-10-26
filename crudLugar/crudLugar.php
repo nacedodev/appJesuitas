@@ -4,6 +4,7 @@ class CrudLugar {
     private $conexion;
     public function __construct($servername, $username, $password, $dbname) {
         $this->conexion = new mysqli($servername, $username, $password, $dbname);
+        $this->conexion->set_charset('UTF8');
 
         if ($this->conexion->connect_error) {
             die("Error de conexión: ".$this->conexion->connect_error);

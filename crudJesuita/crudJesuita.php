@@ -5,6 +5,7 @@ class CrudJesuita {
 
     public function __construct($servername, $username, $password, $dbname) {
         $this->conexion = new mysqli($servername, $username, $password, $dbname);
+        $this->conexion->set_charset('UTF8');
 
         if ($this->conexion->connect_error) {
             die("Error de conexión: ".$this->conexion->connect_error);
@@ -63,7 +64,7 @@ class CrudJesuita {
 
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita modificado correctamente.";
-        } else {
+        }else{
             return "Error al modificar Jesuita: ".$this->conexion->error;
         }
     }
@@ -73,7 +74,7 @@ class CrudJesuita {
 
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita borrado correctamente.";
-        } else {
+        }else{
             return "Error al borrar Jesuita: ".$this->conexion->error;
         }
     }

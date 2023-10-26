@@ -1,8 +1,8 @@
 <?php
-require 'CrudLugar.php';
-require '../assets/configdb.php';
+require 'crudLugar.php';
+require '../config/configdb.php';
 
-    $crud = new CrudLugar($host, $usuario, $password, $basedatos);
+    $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
     $accion = $_POST["accion"];
 
     if ($accion === "Alta") {

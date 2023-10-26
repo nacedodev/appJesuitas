@@ -16,11 +16,12 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 <h2 style="text-align: center;">LISTADO DE VISITAS</h2>
 <table>
     <tr>
-        <td colspan = "3">VISITAS</td>
+        <td colspan = "4">VISITAS</td>
     </tr>
     <tr>
-        <td>N PUESTO</td>
-        <td>IP</td>
+        <td>ID VISITA</td>
+        <td>NOMBRE</td>
+        <td>LUGAR</td>
         <td>FECHA - HORA</td>
     </tr>
     <?php
@@ -29,13 +30,14 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 
     if(!$result->num_rows) {
         echo "<tr>";
-        echo "<td colspan='3'> No hay coincidencias </td>";
+        echo "<td colspan='4'> No hay coincidencias </td>";
         echo "</tr>";
     }else {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>".$row["idJesuita"]."</td>";
-            echo "<td>".$row["ip"]."</td>";
+            echo "<td>".$row["idVisita"]."</td>";
+            echo "<td>".$row["nombre"]."</td>";
+            echo "<td>".$row["lugar"]."</td>";
             echo "<td>".$row["fechaHora"]."</td>";
             echo "</tr>";
         }

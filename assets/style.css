@@ -24,6 +24,14 @@ table {
     max-width: 85%;
 }
 
+select{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
 tr > td {
     text-align: center;
     border: 1px solid black;

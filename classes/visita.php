@@ -12,27 +12,55 @@ class Visita {
         }
     }
 
-    public function hacerVisita($idJesuita, $ip) {
-        $sql = "INSERT INTO visita (idJesuita,ip, fechaHora) VALUES ('".$idJesuita."','".$ip."', now())";
+    public function hacerVisita($nombre,$lugar) {
+        $sql = "SELECT idJesuita FROM jesuita WHERE nombre = '$nombre'";
+        $result = $this->conexion->query($sql);
 
-        try {
-            if ($this->conexion->query($sql) === TRUE) {
-                return "Visita creada correctamente.";
+        if ($result) {
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $idJesuita = $row['idJesuita'];
+
+                // Obtener la IP del lugar (puedes usar $lugar para buscar la IP)
+                $sql = "SELECT ip FROM lugar WHERE Lugar = '$lugar'";
+                $result = $this->conexion->query($sql);
+
+                if ($result) {
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $ip = $row['ip'];
+
+                        // Insertar la visita en la tabla visitas
+                        $sql = "INSERT INTO visitas (idJesuita, ip, fechaHora) VALUES ('".$idJesuita."','".$ip."', now())";
+                        $result = $this->conexion->query($sql);
+
+                        if ($result) {
+                            return "Visita registrada exitosamente.";
+                        } else {
+                            return "Error al registrar la visita: ".$this->conexion->error;
+                        }
+                    } else {
+                        return "No se encontró la IP del lugar.";
+                    }
+                } else {
+                    return "Error al obtener la IP del lugar: ".$this->conexion->error;
+                }
             } else {
-                return "Error al crear la Visita: ".$this->conexion->error;
+                return "No se encontró al jesuita con el nombre y firma proporcionados.";
             }
-        } catch (mysqli_sql_exception $e) {
-            // Verifica si el error es debido a una ip duplicada
-            if ($e->getCode() === 1062) {
-                return "Ya has visitado esta ciudad , prueba con otra";
-            } else {
-                return "Error: ".$e->getMessage();
-            }
+        } else {
+            return "Error al obtener el idJesuita: ".$this->conexion->error;
         }
     }
 
     public function listarVisitas(){
-        $sql = "SELECT idJesuita, ip, fechaHora FROM visita";
+        $sql = "SELECT v.idVisita, j.nombre, v.fechaHora, l.lugar
+                    FROM visita v
+                    INNER JOIN jesuita j ON v.idJesuita = j.idJesuita
+                    INNER JOIN lugar l ON v.ip = l.ip
+                    ORDER BY v.fechaHora DESC
+                    LIMIT 5;";
+
         $result = $this->conexion->query($sql);
         if ($result){
             if($result->num_rows > 0)

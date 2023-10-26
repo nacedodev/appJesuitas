@@ -31,6 +31,54 @@ class CrudJesuita {
         }
     }
 
+    public function listarJesuitas(){
+        $sql = "select nombre from jesuita order by nombre;";
+        $result = $this->conexion->query($sql);
+        if ($result){
+            if($result->num_rows > 0)
+                return $result;
+            else
+                return  "No existen Jesuitas";
+        }else{
+            return "Error al buscar Jesuitas: ".$this->conexion->error;
+        }
+    }
+
+        public function verificarJesuita($nombre, $firma) {
+            $sql = "SELECT firma FROM jesuita WHERE nombre = '" . $nombre . "';";
+            $result = $this->conexion->query($sql);
+
+            if ($result) {
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $firmaJesuita = $row['firma'];
+
+                    if ($firma == $firmaJesuita) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return "No se encontró al jesuita con el nombre proporcionado.";
+                }
+            } else {
+                return "Error al verificar al jesuita: ".$this->conexion->error;
+            }
+        }
+
+    public function listarFirmas(){
+        $sql = "SELECT firma FROM jesuita order by firma";
+        $result = $this->conexion->query($sql);
+        if ($result){
+            if($result->num_rows > 0)
+                return $result;
+            else
+                return  "No existen Jesuitas";
+        }else{
+            return "Error al buscar Jesuitas: ".$this->conexion->error;
+        }
+    }
+
     public function buscarJesuita($idJesuita){
         $sql = "SELECT idJesuita, nombre, firma FROM jesuita WHERE idJesuita = '".$idJesuita."'";
         $result = $this->conexion->query($sql);

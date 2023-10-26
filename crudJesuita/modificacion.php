@@ -6,7 +6,7 @@
     </head>
     <body id="modificar-form">
         <?php
-        require 'crudJesuita.php';
+        require '../classes/crudJesuita.php';
         require '../config/configdb.php';
         if (isset($_POST["buscar"])) {
             $crud = new CrudJesuita(HOST,USUARIO,PASSWORD, BASEDATOS);

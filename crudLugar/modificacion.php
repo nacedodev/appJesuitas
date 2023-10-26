@@ -7,8 +7,9 @@
 <body id="modificar-form">
 <h1>Modificación del lugar</h1>
 <?php
-require 'crudLugar.php';
-require '../config /configdb.php';
+require '../classes/crudLugar.php';
+require '../config/configdb.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
     $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
     $ip = $_POST["ip"];

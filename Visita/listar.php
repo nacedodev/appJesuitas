@@ -1,7 +1,7 @@
 
 <?php
 require '../config/configdb.php';
-require 'visita.php';
+require '../classes/visita.php';
 $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>

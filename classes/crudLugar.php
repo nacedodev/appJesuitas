@@ -12,7 +12,7 @@ class CrudLugar {
     }
 
     public function altaLugar($ip, $lugar, $descipcion) {
-        $sql = "INSERT INTO lugar (ip,lugar, descripcion) VALUES ('$ip','$lugar', '$descipcion')";
+        $sql = "INSERT INTO lugar (ip, lugar, descripcion) VALUES ('".$ip."', '".$lugar."', $descipcion)";
 
         try {
             if ($this->conexion->query($sql) === TRUE) {
@@ -59,7 +59,7 @@ class CrudLugar {
     }
 
     public function modificarLugar($ip, $lugar, $descripcion) {
-        $sql = "UPDATE lugar SET lugar = '$lugar', descripcion = '$descripcion' WHERE ip = '".$ip."';";
+        $sql = "UPDATE lugar SET lugar = '".$lugar."', descripcion = '".$descripcion."' WHERE ip = '".$ip."';";
 
         if ($this->conexion->query($sql) === TRUE) {
             return "Lugar modificado correctamente.";

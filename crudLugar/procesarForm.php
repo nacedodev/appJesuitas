@@ -1,5 +1,5 @@
 <?php
-require 'crudLugar.php';
+require '../classes/crudLugar.php';
 require '../config/configdb.php';
 
     $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
@@ -8,7 +8,7 @@ require '../config/configdb.php';
     if ($accion === "Alta") {
         $ip = $_POST["ip"];
         $lugar = $_POST["lugar"];
-        $descripcion = $_POST["descripcion"];
+        $descripcion = empty($_POST["descripcion"]) ? "NULL" : "'".$_POST["descripcion"]."'";
 
         if (count(explode('.',$ip)) === 4) {
             $resultado = $crud->altaLugar($ip, $lugar, $descripcion);

@@ -1,6 +1,6 @@
 <?php
 require '../config/configdb.php';
-require 'crudJesuita.php';
+require '../classes/crudJesuita.php';
 
     $crud = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS);
     $accion = $_POST["accion"];

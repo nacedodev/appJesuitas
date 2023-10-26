@@ -13,7 +13,7 @@ class CrudJesuita {
     }
 
     public function altaJesuita($idJesuita, $nombre, $firma) {
-        $sql = "INSERT INTO jesuita (idJesuita,nombre, firma) VALUES ('$idJesuita','$nombre','$firma')";
+        $sql = "INSERT INTO jesuita (idJesuita,nombre, firma) VALUES ('".$idJesuita."','".$nombre."','".$firma."')";
 
         try {
             if ($this->conexion->query($sql) === TRUE) {
@@ -32,7 +32,7 @@ class CrudJesuita {
     }
 
     public function buscarJesuita($idJesuita){
-        $sql = "SELECT idJesuita, nombre, firma FROM jesuita WHERE idJesuita = $idJesuita";
+        $sql = "SELECT idJesuita, nombre, firma FROM jesuita WHERE idJesuita = '".$idJesuita."'";
         $result = $this->conexion->query($sql);
 
         if ($result) {
@@ -47,7 +47,7 @@ class CrudJesuita {
     }
 
     public function modificarJesuita($idJesuita, $nombre, $firma) {
-        $sql = "UPDATE jesuita SET nombre = '$nombre', firma = '$firma' WHERE idJesuita = $idJesuita";
+        $sql = "UPDATE jesuita SET nombre = '".$nombre."', firma = '".$firma."' WHERE idJesuita = '".$idJesuita."'";
 
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita modificado correctamente.";
@@ -57,7 +57,7 @@ class CrudJesuita {
     }
 
     public function borrarJesuita($idJesuita) {
-        $sql = "DELETE FROM jesuita WHERE idJesuita = $idJesuita";
+        $sql = "DELETE FROM jesuita WHERE idJesuita = '".$idJesuita."'";
 
         if ($this->conexion->query($sql) === TRUE) {
             return "Jesuita borrado correctamente.";

@@ -1,7 +1,7 @@
 
 <?php
 require '../config/configdb.php';
-require 'crudLugar.php';
+require '../classes/crudLugar.php';
 $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
             echo "<tr>";
             echo "<td>".$row["ip"]."</td>";
             echo "<td>".$row["lugar"]."</td>";
-            echo "<td>".$row["descripcion"]."</td>";
+            echo "<td>".($row["descripcion"] === NULL ? "vacío" : $row["descripcion"])."</td>";
             echo "</tr>";
         }
     }

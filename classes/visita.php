@@ -13,7 +13,7 @@ class Visita {
     }
 
     public function hacerVisita($idJesuita, $ip) {
-        $sql = "INSERT INTO visita (idJesuita,ip, fechaHora) VALUES ('$idJesuita','$ip', now())";
+        $sql = "INSERT INTO visita (idJesuita,ip, fechaHora) VALUES ('".$idJesuita."','".$ip."', now())";
 
         try {
             if ($this->conexion->query($sql) === TRUE) {

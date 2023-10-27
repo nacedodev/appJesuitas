@@ -23,32 +23,32 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
 <body>
 <h1>VISITA</h1>
 <form method="POST" action="procesarForm.php" id="alta-form">
-    <label for="nombre">Selecciona un jesuita:</label>
+    <label for="nombre">Quién eres?</label>
     <select id="nombre" name="nombre">
         <?php
         $result = $crudJ->listarJesuitas();
         while($row = $result->fetch_assoc()){//Extrae cada una de las filas del resultado de la consulta
-            echo "<option value=".$row["nombre"].">".$row["nombre"]."</option>";
+            echo "<option value= '".$row["nombre"]."'>".$row["nombre"]."</option>";
         }
         ?>
     </select>
 
-    <label for="firma">Selecciona una firma:</label>
+    <label for="firma">Cuál es tu firma?</label>
     <select id="firma" name="firma">
         <?php
         $result = $crudJ->listarFirmas();
-        while($row = $result->fetch_array()){
-            echo "<option value=".$row["firma"].">".$row["firma"]."</option>";
+        while($row = $result->fetch_array()) {
+            echo "<option value='" . $row["firma"] . "'>" . $row["firma"] . "</option>";
         }
         ?>
     </select>
 
-    <label for="firma">Selecciona un lugar:</label>
+    <label for="firma">Que lugar te gustaría visitar:</label>
     <select id="firma" name="lugar">
         <?php
         $result = $crudL->nombreLugares();
         while($row = $result->fetch_array()){
-            echo "<option value=".$row["lugar"].">".$row["lugar"]."</option>";
+            echo "<option value='".$row["lugar"]."'>".$row["lugar"]."</option>";
         }
         ?>
     </select>

@@ -17,7 +17,8 @@ class CrudJesuita {
 
         try {
             if ($this->conexion->query($sql) === TRUE) {
-                return "Jesuita creado correctamente.";
+                $mensaje = "Jesuita creado correctamente.";
+                return $mensaje;
             } else {
                 return "Error al crear Jesuita: ".$this->conexion->error;
             }

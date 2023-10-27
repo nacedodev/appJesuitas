@@ -12,11 +12,12 @@ class CrudLugar {
     }
 
     public function altaLugar($ip, $lugar, $descipcion) {
-        $sql = "INSERT INTO lugar (ip, lugar, descripcion) VALUES ('".$ip."', '".$lugar."', $descipcion)";
+        $sql = "INSERT INTO lugar (ip, lugar, descripcion) VALUES ('".$ip."', '".$lugar."',$descipcion)";
 
         try {
             if ($this->conexion->query($sql) === TRUE) {
-                return "Lugar creado correctamente.";
+                $mensaje = "Lugar creado correctamente";
+                return $mensaje;
             } else {
                 return "Error al crear Lugar: ".$this->conexion->error;
             }

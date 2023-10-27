@@ -13,7 +13,7 @@ require '../config/configdb.php';
         $lugar = $_POST["lugar"];
 
         if ($crudJ->verificarJesuita($nombre,$firma)) {
-            $resultado = $visita->hacerVisita($nombre, $lugar);
+            $resultado = $visita->hacerVisita($nombre, $lugar,$firma);
             echo $resultado;
         } else {
             echo "La firma no pertenece a ese jesuita.";

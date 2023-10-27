@@ -12,8 +12,8 @@ class Visita {
         }
     }
 
-    public function hacerVisita($nombre,$lugar) {
-        $sql = "SELECT idJesuita FROM jesuita WHERE nombre = '$nombre'";
+    public function hacerVisita($nombre,$lugar,$firma) {
+        $sql = "SELECT idJesuita FROM jesuita WHERE nombre = '".$nombre."' AND firma = '".$firma."'";
         $result = $this->conexion->query($sql);
 
         if ($result) {
@@ -21,17 +21,15 @@ class Visita {
                 $row = $result->fetch_assoc();
                 $idJesuita = $row['idJesuita'];
 
-                // Obtener la IP del lugar (puedes usar $lugar para buscar la IP)
-                $sql = "SELECT ip FROM lugar WHERE Lugar = '$lugar'";
+                $sql = "SELECT ip FROM lugar WHERE lugar = '".$lugar."'";
                 $result = $this->conexion->query($sql);
 
                 if ($result) {
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
                         $ip = $row['ip'];
-
                         // Insertar la visita en la tabla visitas
-                        $sql = "INSERT INTO visitas (idJesuita, ip, fechaHora) VALUES ('".$idJesuita."','".$ip."', now())";
+                        $sql = "INSERT INTO visita (idJesuita, ip, fechaHora) VALUES ('".$idJesuita."','".$ip."', now())";
                         $result = $this->conexion->query($sql);
 
                         if ($result) {

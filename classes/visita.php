@@ -33,22 +33,23 @@ class Visita {
                         $result = $this->conexion->query($sql);
 
                         if ($result) {
-                            return "Visita registrada exitosamente.";
+                            $mensaje = "Visita registrada exitosamente.";
                         } else {
-                            return "Error al registrar la visita: ".$this->conexion->error;
+                            $mensaje = "Error al registrar la visita: ".$this->conexion->error;
                         }
                     } else {
-                        return "No se encontró la IP del lugar.";
+                        $mensaje = "No se encontró la IP del lugar.";
                     }
                 } else {
-                    return "Error al obtener la IP del lugar: ".$this->conexion->error;
+                    $mensaje = "Error al obtener la IP del lugar: ".$this->conexion->error;
                 }
             } else {
-                return "No se encontró al jesuita con el nombre y firma proporcionados.";
+                $mensaje = "No se encontró al jesuita con el nombre y firma proporcionados.";
             }
         } else {
-            return "Error al obtener el idJesuita: ".$this->conexion->error;
+            $mensaje = "Error al obtener el idJesuita: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function listarVisitas(){
@@ -64,10 +65,11 @@ class Visita {
             if($result->num_rows > 0)
                 return $result;
             else
-                return  "No existen Visitas";
+                $mensaje =  "No existen Visitas";
         }else{
-            return "Error al buscar Visitas: ".$this->conexion->error;
+            $mensaje = "Error al buscar Visitas: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function __destruct() {

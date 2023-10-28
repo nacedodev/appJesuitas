@@ -13,15 +13,15 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<h2 style="text-align: center;">LISTADO DE LUGARES</h2>
 <table>
     <tr>
-        <td colspan = "3">LUGARES</td>
+        <td colspan="4">LUGARES <a id="add" href="alta.html"><img width="20" height="20" src="https://img.icons8.com/color/48/add--v1.png" alt="add"/></a></td>
     </tr>
     <tr>
-        <td>IP</td>
         <td>LUGAR</td>
+        <td>IP</td>
         <td>DESCRIPCION</td>
+        <td>ACCIONES</td>
     </tr>
     <?php
 
@@ -34,14 +34,19 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
     }else {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>".$row["ip"]."</td>";
             echo "<td>".$row["lugar"]."</td>";
+            echo "<td>".$row["ip"]."</td>";
             echo "<td>".($row["descripcion"] === NULL ? "vacío" : $row["descripcion"])."</td>";
+            echo "<td>";
+            echo '<a style="margin-right:20px" href="procesarForm.php?ip='.$row["ip"].'&accion=borrar"><img width="25" height="25" src="https://img.icons8.com/ios/50/trash--v1.png" alt="trash"/></a>';
+            echo '<a href="modificacion.php?ip='.$row["ip"].'"><img width="25" height="25" src="https://img.icons8.com/external-prettycons-lineal-prettycons/49/external-marker-tools-prettycons-lineal-prettycons.png" alt="mod"/></a>';
+            echo "</td>";
             echo "</tr>";
         }
     }
     unset($crud);
     ?>
 </table>
+<a href="../index.html" id="volver">VOLVER</a>
 </body>
 </html>

@@ -10,9 +10,8 @@
 require '../classes/crudLugar.php';
 require '../config/configdb.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
     $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
-    $ip = $_POST["ip"];
+    $ip = $_GET["ip"];
     $result = $crud->buscarLugar($ip);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -22,10 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
     else{
         $lugar = 'No hay coincidencias';
         $descripcion  =  'No hay coincidencias';
-    }
 }
 ?>
-<form method="POST" action="procesarForm.php">
+<form method="GET" action="procesarForm.php">
     <label for="ip">IP:</label>
     <input type="text" name="ip" value="<?php echo $ip; ?>">
     <label for="lugar">Lugar:</label>
@@ -36,5 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["buscar"])) {
 
     <input type="submit" name="accion" value="modificar">
 </form>
+<a href="listar.php" id="volver">VOLVER</a>
 </body>
 </html>

@@ -17,11 +17,40 @@ form {
     margin: 40px auto 0;
 }
 
+/* Estilos para la tabla */
 table {
-    margin: 0 auto;
+    width: 80%;
+    margin: 30px auto;
     border-collapse: collapse;
-    border-radius: 15px;
-    max-width: 85%;
+    overflow: hidden; /* Oculta las esquinas redondeadas que sobresalen */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las filas impares */
+table tr:nth-child(odd){
+    background-color: #f2f2f2;
+}
+
+/* Estilos para las filas pares */
+table tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+/* Estilos para las celdas */
+table td {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Estilos para la cabecera de la tabla */
+table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+
 }
 
 select{
@@ -33,11 +62,6 @@ select{
     margin: 10px 0;
 }
 
-tr > td {
-    text-align: center;
-    border: 1px solid black;
-    padding: 10px;
-}
 
 h1 {
     text-align: center;
@@ -111,7 +135,7 @@ input[type="submit"]:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
 }
 
 #procesos a {
@@ -120,8 +144,8 @@ input[type="submit"]:hover {
     color: #fff; /* Cambia el color del texto a tu preferencia */
     text-decoration: none;
     border-radius: 5px; /* Bordes redondeados */
-    margin: 25px 10px 10px;
     transition: transform 0.3s;
+    margin-top: 15px;
 }
 
 #procesos a:first-child{
@@ -146,14 +170,38 @@ input[type="submit"]:hover {
 }
 
 /* Cambia el color al pasar el ratón por encima del botón */
-#procesos a:hover {
+#procesos a:hover,
+#volver:hover{
     transform: scale(1.02);
 }
 
 #volver{
-    text-align: center;
-    width: 30%;
-    margin-top: 30px;
+    display: block;
+    padding: 10px 20px;
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    text-decoration: none;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: transform 0.3s;
     background-color: lightcoral;
-    box-shadow: 3px 3px 6px coral;
+    box-shadow: 2px 2px 5px coral;
+    width: 3rem;
+    margin:20px auto;
+    font-size: 12px;
+    text-align: center;
 }
+
+#add{
+    float:right;
+    margin-right: 5px;
+}
+
+/*#trash{*/
+/*    width: 80%;*/
+/*    height: 50px;*/
+/*    text-align: center;*/
+/*    color: lightgray;*/
+/*    margin: 0 auto 10px;*/
+/*    border-radius: 10px;*/
+/*    background-color: lightpink;*/
+/*    box-shadow: 2px 2px 4px indianred;*/
+/*}*/

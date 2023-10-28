@@ -54,5 +54,6 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
     </select>
     <input type="submit" name="accion" value="Visitar">
 </form>
+<a href="main.html" id="volver">VOLVER</a>
 </body>
 </html>

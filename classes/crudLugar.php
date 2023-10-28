@@ -17,18 +17,18 @@ class CrudLugar {
         try {
             if ($this->conexion->query($sql) === TRUE) {
                 $mensaje = "Lugar creado correctamente";
-                return $mensaje;
             } else {
-                return "Error al crear Lugar: ".$this->conexion->error;
+                $mensaje = "Error al crear Lugar: ".$this->conexion->error;
             }
         } catch (mysqli_sql_exception $e) {
             // Verifica si el error es debido a una ip duplicada
             if ($e->getCode() === 1062) {
-                return "Error: El lugar asociado a esa IP ya existe en la base de datos.";
+                $mensaje = "Error: El lugar asociado a esa IP ya existe en la base de datos.";
             } else {
-                return "Error: " . $e->getMessage();
+                $mensaje = "Error: " . $e->getMessage();
             }
         }
+        return $mensaje;
     }
 
     public function buscarLugar($ip){
@@ -39,24 +39,26 @@ class CrudLugar {
             if ($result->num_rows > 0) {
                 return $result;
             } else {
-                return "No se encontró un Lugar con la IP seleccionada.";
+                $mensaje = "No se encontró un Lugar con la IP seleccionada.";
             }
         } else {
-            return "Error al buscar Lugar: ".$this->conexion->error;
+            $mensaje = "Error al buscar Lugar: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function listarLugares(){
-        $sql = "SELECT ip, lugar, descripcion FROM lugar";
+        $sql = "SELECT ip, lugar, descripcion FROM lugar order by lugar";
         $result = $this->conexion->query($sql);
         if ($result){
             if($result->num_rows > 0)
                 return $result;
             else
-                return  "No existen Lugares";
+                $mensaje =  "No existen Lugares";
         }else{
-            return "Error al buscar Lugares: ".$this->conexion->error;
+            $mensaje = "Error al buscar Lugares: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function nombreLugares(){
@@ -66,30 +68,33 @@ class CrudLugar {
             if($result->num_rows > 0)
                 return $result;
             else
-                return  "No existen Lugares";
+                $mensaje =  "No existen Lugares";
         }else{
-            return "Error al buscar Lugares: ".$this->conexion->error;
+            $mensaje = "Error al buscar Lugares: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function modificarLugar($ip, $lugar, $descripcion) {
         $sql = "UPDATE lugar SET lugar = '".$lugar."', descripcion = '".$descripcion."' WHERE ip = '".$ip."';";
 
         if ($this->conexion->query($sql) === TRUE) {
-            return "Lugar modificado correctamente.";
+            $mensaje = "Lugar modificado correctamente.";
         } else {
-            return "Error al modificar Lugar: ".$this->conexion->error;
+            $mensaje = "Error al modificar Lugar: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function borrarLugar($ip) {
         $sql = "DELETE FROM lugar WHERE ip = '".$ip."';";
 
         if ($this->conexion->query($sql) === TRUE) {
-            return "Lugar borrado correctamente.";
+            $mensaje =  "Lugar borrado correctamente.";
         } else {
-            return "Error al borrar Lugar: ".$this->conexion->error;
+            $mensaje = "Error al borrar Lugar: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function __destruct() {

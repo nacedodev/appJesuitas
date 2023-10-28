@@ -18,18 +18,18 @@ class CrudJesuita {
         try {
             if ($this->conexion->query($sql) === TRUE) {
                 $mensaje = "Jesuita creado correctamente.";
-                return $mensaje;
             } else {
-                return "Error al crear Jesuita: ".$this->conexion->error;
+                $mensaje = "Error al crear Jesuita: ".$this->conexion->error;
             }
         } catch (mysqli_sql_exception $e) {
             // Verifica si el error es debido a una ip duplicada
             if ($e->getCode() === 1062) {
-                return "Error: El Jesuita asociado a esa IP ya existe en la base de datos.";
+                $mensaje = "Error: El Jesuita asociado a esa IP ya existe en la base de datos.";
             } else {
-                return "Error: " . $e->getMessage();
+                $mensaje = "Error: " . $e->getMessage();
             }
         }
+        return $mensaje;
     }
 
     public function listarJesuitas(){
@@ -39,10 +39,11 @@ class CrudJesuita {
             if($result->num_rows > 0)
                 return $result;
             else
-                return  "No existen Jesuitas";
+                $mensaje = "No existen Jesuitas";
         }else{
-            return "Error al buscar Jesuitas: ".$this->conexion->error;
+            $mensaje = "Error al buscar Jesuitas: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
         public function verificarJesuita($nombre, $firma) {
@@ -60,11 +61,12 @@ class CrudJesuita {
                         return false;
                     }
                 } else {
-                    return "No se encontró al jesuita con el nombre proporcionado.";
+                    $mensaje = "No se encontró al jesuita con el nombre proporcionado.";
                 }
             } else {
-                return "Error al verificar al jesuita: ".$this->conexion->error;
+                $mensaje = "Error al verificar al jesuita: ".$this->conexion->error;
             }
+            return $mensaje;
         }
 
     public function listarFirmas(){
@@ -74,10 +76,11 @@ class CrudJesuita {
             if($result->num_rows > 0)
                 return $result;
             else
-                return  "No existen Jesuitas";
+                $mensaje = "No existen Jesuitas";
         }else{
-            return "Error al buscar Jesuitas: ".$this->conexion->error;
+            $mensaje = "Error al buscar Jesuitas: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function buscarJesuita($idJesuita){
@@ -88,31 +91,34 @@ class CrudJesuita {
             if ($result->num_rows > 0) {
                 return $result;
             } else {
-                return "No se encontró un Jesuita con el ID proporcionado.";
+                $mensaje = "No se encontró un Jesuita con el ID proporcionado.";
             }
         } else {
-            return "Error al buscar Jesuita: ".$this->conexion->error;
+            $mensaje = "Error al buscar Jesuita: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function modificarJesuita($idJesuita, $nombre, $firma) {
         $sql = "UPDATE jesuita SET nombre = '".$nombre."', firma = '".$firma."' WHERE idJesuita = '".$idJesuita."'";
 
         if ($this->conexion->query($sql) === TRUE) {
-            return "Jesuita modificado correctamente.";
+            $mensaje = "Jesuita modificado correctamente.";
         }else{
-            return "Error al modificar Jesuita: ".$this->conexion->error;
+            $mensaje = "Error al modificar Jesuita: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function borrarJesuita($idJesuita) {
         $sql = "DELETE FROM jesuita WHERE idJesuita = '".$idJesuita."'";
 
         if ($this->conexion->query($sql) === TRUE) {
-            return "Jesuita borrado correctamente.";
+            $mensaje = "Jesuita borrado correctamente.";
         }else{
-            return "Error al borrar Jesuita: ".$this->conexion->error;
+            $mensaje = "Error al borrar Jesuita: ".$this->conexion->error;
         }
+        return $mensaje;
     }
 
     public function __destruct() {

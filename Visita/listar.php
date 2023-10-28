@@ -19,7 +19,6 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
         <td colspan = "4">VISITAS</td>
     </tr>
     <tr>
-        <td>ID VISITA</td>
         <td>NOMBRE</td>
         <td>LUGAR</td>
         <td>FECHA - HORA</td>
@@ -30,12 +29,11 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 
     if(!$result->num_rows) {
         echo "<tr>";
-        echo "<td colspan='4'> No hay coincidencias </td>";
+        echo "<td colspan='3'> No hay coincidencias </td>";
         echo "</tr>";
     }else {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
-            echo "<td>".$row["idVisita"]."</td>";
             echo "<td>".$row["nombre"]."</td>";
             echo "<td>".$row["lugar"]."</td>";
             echo "<td>".$row["fechaHora"]."</td>";
@@ -45,5 +43,6 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     unset($crud);
     ?>
 </table>
+<a href="main.html" id="volver">VOLVER</a>
 </body>
 </html>

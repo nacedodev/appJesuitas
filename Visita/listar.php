@@ -16,7 +16,7 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 <h2 style="text-align: center;">LISTADO DE VISITAS</h2>
 <table>
     <tr>
-        <td colspan = "4">VISITAS</td>
+        <td colspan = "4">VISITAS<span style="color:rgb(128,128,128)"> (5 últimas)</span></td>
     </tr>
     <tr>
         <td>NOMBRE</td>
@@ -40,8 +40,26 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
             echo "</tr>";
         }
     }
+    // He buscado el jesuita que ha realizado más visitas y he guardado los valores de nombre y nVisitas en variables que usare más adelate
+    $result = $crud->maxVisitas();
+    $row = $result->fetch_assoc();
+
+    $jesuita = $row["nombre"];
+    $nVisitas = $row["total_visitas"];
+    // Cerramos la conexión
     unset($crud);
     ?>
+</table>
+<h2 style="text-align: center; margin-top: 100px">ESTADÍSTICAS</h2>
+<table>
+    <tr style="font-weight: bold">
+        <td>JESUITA CON MÁS VISITAS REALIZADAS</td>
+        <td>NUMERO TOTAL DE VISITAS</td>
+    </tr>
+    <tr>
+        <td><?php echo $jesuita?></td>
+        <td><?php echo $nVisitas?></td>
+    </tr>
 </table>
 <a href="main.html" id="volver">VOLVER</a>
 </body>

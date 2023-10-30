@@ -7,10 +7,6 @@ require '../classes/crudLugar.php';
 //Creamos los objetos necesarios para llevar a cabo la visita
 $crudJ = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS); //Conecta con la base de datos
 $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
-//Desactivar errores
-//$controlador = new mysqli_driver();
-//$controlador->report_mode = MYSQLI_REPORT_OFF;
-//
 ?>
 
 <!DOCTYPE html>

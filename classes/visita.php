@@ -79,6 +79,26 @@ class Visita {
         return $mensaje;
     }
 
+    public function maxVisitas(){
+        $sql = "SELECT j.nombre , COUNT(*) AS total_visitas
+                FROM visita v INNER JOIN jesuita j ON v.idJesuita = j.idJesuita
+                GROUP BY v.idJesuita , j.nombre
+                ORDER BY total_visitas DESC
+                LIMIT 1;";
+        $result = $this->conexion->query($sql);
+        if($result) {
+            if ($result->num_rows > 0) {
+                return $result;
+            } else {
+                $mensaje = "No existen visitas";
+            }
+        } else {
+            $mensaje = "Error al buscar Visitas: ".$this->conexion->error;
+        }
+
+        return $mensaje;
+    }
+
     // Destructor que cierra la conexión a la base de datos al finalizar
     public function __destruct() {
         $this->conexion->close();

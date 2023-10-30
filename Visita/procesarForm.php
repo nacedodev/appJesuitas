@@ -15,6 +15,7 @@ require '../config/configdb.php';
         if ($crudJ->verificarJesuita($nombre,$firma)) {
             $resultado = $visita->hacerVisita($nombre, $lugar,$firma);
             echo $resultado;
+            header("refresh:2 url = listar.php");
         } else {
             echo "La firma no pertenece a ese jesuita.";
         }

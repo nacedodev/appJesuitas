@@ -1,7 +1,9 @@
 
 <?php
+// Importamos los archivos necesarios
 require '../config/configdb.php';
 require '../classes/crudLugar.php';
+// Creamos un nuevo objeto de la clase CrudLugar
 $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>
@@ -9,7 +11,7 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respuesta del Formulario</title>
+    <title>LUGARES</title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -24,14 +26,15 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
         <td>ACCIONES</td>
     </tr>
     <?php
-
+    // Llamamos a un método del objeto para que nos devuelva una lista de todos los lugares
     $result = $crud->listarLugares();
-
+    // Si nos devuelve alguna fila , es decir , la consulta devuelve algo...
     if(!$result->num_rows) {
         echo "<tr>";
         echo "<td colspan='3'> No hay coincidencias </td>";
         echo "</tr>";
     }else {
+        // Recorremos todas las filas de array y vamos mostrando el contenido refiriendonos a el de manera asociativa
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>".$row["lugar"]."</td>";
@@ -44,6 +47,7 @@ $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
             echo "</tr>";
         }
     }
+    // Llamamos al destructor de la clase
     unset($crud);
     ?>
 </table>

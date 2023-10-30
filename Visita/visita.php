@@ -1,9 +1,10 @@
 <?php
+// Importamos los archivos necesarios...
 require '../config/configdb.php';
 require '../classes/visita.php';
 require '../classes/crudJesuita.php';
 require '../classes/crudLugar.php';
-//Conecta con la base de datos ($conexión)
+//Creamos los objetos necesarios para llevar a cabo la visita
 $crudJ = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS); //Conecta con la base de datos
 $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
 //Desactivar errores
@@ -26,7 +27,9 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
     <label for="nombre">Quién eres?</label>
     <select id="nombre" name="nombre">
         <?php
+        // Accedemos al método que nos permite listar los jesuitas
         $result = $crudJ->listarJesuitas();
+        // Recorremos el listado de jesuitas que nos ha devuelvo la BD mientras incluimos en un option cada uno de ellos
         while($row = $result->fetch_assoc()){//Extrae cada una de las filas del resultado de la consulta
             echo "<option value= '".$row["nombre"]."'>".$row["nombre"]."</option>";
         }
@@ -36,7 +39,9 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
     <label for="firma">Cuál es tu firma?</label>
     <select id="firma" name="firma">
         <?php
+        // Accedemos al método que nos permite listar las firmas
         $result = $crudJ->listarFirmas();
+        // Recorremos el listado de firmas que nos ha devuelto la BD mientras incluimos en un option cada uno de ellos
         while($row = $result->fetch_array()) {
             echo "<option value='" . $row["firma"] . "'>" . $row["firma"] . "</option>";
         }
@@ -46,7 +51,9 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
     <label for="firma">Que lugar te gustaría visitar:</label>
     <select id="firma" name="lugar">
         <?php
+        // Acedemos al meetodo que nos permite listar todos los nombres de todos los lugares
         $result = $crudL->nombreLugares();
+        // Recorremos el listado de nombres de lugares que nos ha devuelto la BD mientras incluimos en un option cada uno de ellos
         while($row = $result->fetch_array()){
             echo "<option value='".$row["lugar"]."'>".$row["lugar"]."</option>";
         }
@@ -54,6 +61,7 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
     </select>
     <input type="submit" name="accion" value="Visitar">
 </form>
+<!--Boton que nos permite navegar hacia atrás en la web-->
 <a href="main.html" id="volver">VOLVER</a>
 </body>
 </html>

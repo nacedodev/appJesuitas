@@ -6,9 +6,12 @@
     </head>
     <body id="modificar-form">
         <?php
+        // incluimos los archivos necesarios
         require '../classes/crudJesuita.php';
         require '../config/configdb.php';
+        // Si existe el submit...
         if (isset($_POST["buscar"])) {
+            // Creamos un objeto crudJesuita con los datos de conexion , para buscar el jesuita especificado
             $crud = new CrudJesuita(HOST,USUARIO,PASSWORD, BASEDATOS);
             $idJesuita = $_POST["idJesuita"];
             $result = $crud->buscarJesuita($idJesuita);
@@ -23,6 +26,7 @@
             }
         }
         ?>
+        <!-- Formulario de modificiacion -->
         <form method="POST" action="procesarForm.php">
             <label for="idJesuita">N° Puesto:</label>
             <input type="text" name="idJesuita" value="<?php echo $idJesuita; ?>">

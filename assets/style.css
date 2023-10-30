@@ -1,3 +1,4 @@
+/*NACHO ACEDO*/
 body,html{
     margin:0;
     padding: 0;
@@ -141,7 +142,7 @@ input[type="submit"]:hover {
 #procesos a {
     display: block;
     padding: 10px 20px;
-    color: #fff; /* Cambia el color del texto a tu preferencia */
+    color: #fff;
     text-decoration: none;
     border-radius: 5px; /* Bordes redondeados */
     transition: transform 0.3s;
@@ -169,7 +170,7 @@ input[type="submit"]:hover {
 
 }
 
-/* Cambia el color al pasar el ratón por encima del botón */
+/* Cambia el tamaño al pasar el ratón por encima del botón */
 #procesos a:hover,
 #volver:hover{
     transform: scale(1.02);
@@ -178,7 +179,7 @@ input[type="submit"]:hover {
 #volver{
     display: block;
     padding: 10px 20px;
-    color: #fff; /* Cambia el color del texto a tu preferencia */
+    color: #fff;
     text-decoration: none;
     border-radius: 5px; /* Bordes redondeados */
     transition: transform 0.3s;
@@ -194,14 +195,3 @@ input[type="submit"]:hover {
     float:right;
     margin-right: 5px;
 }
-
-/*#trash{*/
-/*    width: 80%;*/
-/*    height: 50px;*/
-/*    text-align: center;*/
-/*    color: lightgray;*/
-/*    margin: 0 auto 10px;*/
-/*    border-radius: 10px;*/
-/*    background-color: lightpink;*/
-/*    box-shadow: 2px 2px 4px indianred;*/
-/*}*/

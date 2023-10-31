@@ -93,6 +93,7 @@ class CrudJesuita {
 
     // Método para buscar un Jesuita por su ID
     public function buscarJesuita($idJesuita) {
+        // Recalcar que para poder eliminar correctamente el jesuita hay que añadir borrado y modificación en cascada a la fk de la tabla visita
         $sql = "SELECT idJesuita, nombre, firma FROM jesuita WHERE idJesuita = '" . $idJesuita . "'";
         $result = $this->conexion->query($sql);
 
@@ -110,6 +111,7 @@ class CrudJesuita {
 
     // Método para modificar los datos de un Jesuita
     public function modificarJesuita($idJesuita, $nombre, $firma) {
+        // Recalcar que para poder modificar correctamente el jesuita hay que añadir borrado y modificación en cascada a la fk de la tabla visita
         $sql = "UPDATE jesuita SET nombre = '" . $nombre . "', firma = '" . $firma . "' WHERE idJesuita = '" . $idJesuita . "'";
 
         if ($this->conexion->query($sql) === TRUE) {

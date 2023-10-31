@@ -41,12 +41,12 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
         }
     }
     // He buscado el jesuita que ha realizado más visitas y he guardado los valores de nombre y nVisitas en variables que usare más adelate
-    $result = $crud->maxVisitas();
+    $result = $crud->maxVisitasJesuita();
     $row = $result->fetch_assoc();
 
     $jesuita = $row["nombre"];
     $nVisitas = $row["total_visitas"];
-    // Cerramos la conexión
+
     unset($crud);
     ?>
 </table>

@@ -15,9 +15,10 @@ require '../config/configdb.php';
         if ($crudJ->verificarJesuita($nombre,$firma)) {
             $resultado = $visita->hacerVisita($nombre, $lugar,$firma);
             echo $resultado;
-            header("refresh:2 url = listar.php");
+            header("Refresh:2 ;url=listar.php"); // Esperar 2 segundos y luego redirigir al listado de visitas
         } else {
             echo "La firma no pertenece a ese jesuita.";
         }
     }
-    unset($crud); //ESTO ES PARA LLAMAR AL DESTRUCTOR DE LA CLASE, EN ESTE CASO PARA QUE CIERRE LA CONEXION
+    unset($crudJ); //ESTO ES PARA LLAMAR AL DESTRUCTOR DE LA CLASE, EN ESTE CASO PARA QUE CIERRE LA CONEXION
+    unset($visita);

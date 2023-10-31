@@ -78,6 +78,7 @@ class CrudLugar {
     }
     // Método para modificar la información de un lugar existente
     public function modificarLugar($ip, $lugar, $descripcion) {
+        // Recalcar que para poder modificar correctamente el lugar hay que añadir borrado y modificación en cascada a la fk de la tabla visita
         $sql = "UPDATE lugar SET lugar = '".$lugar."', descripcion = '".$descripcion."' WHERE ip = '".$ip."';";
 
         if ($this->conexion->query($sql) === TRUE) {
@@ -89,6 +90,7 @@ class CrudLugar {
     }
     // Método para eliminar un lugar de la base de datos
     public function borrarLugar($ip) {
+        // Recalcar que para poder modificar correctamente el lugar hay que añadir borrado y modificación en cascada a la fk de la tabla visita
         $sql = "DELETE FROM lugar WHERE ip = '".$ip."';";
 
         if ($this->conexion->query($sql) === TRUE) {

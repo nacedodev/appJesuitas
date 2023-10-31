@@ -18,7 +18,7 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     <tr>
         <td colspan = "4">VISITAS<span style="color:rgb(128,128,128)"> (5 últimas)</span></td>
     </tr>
-    <tr>
+    <tr style="font-weight: bold">
         <td>NOMBRE</td>
         <td>LUGAR</td>
         <td>FECHA - HORA</td>

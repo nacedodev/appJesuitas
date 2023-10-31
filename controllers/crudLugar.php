@@ -2,18 +2,11 @@
 require '../models/modelLugar.php';
 // definicion de la clase CrudLugar
 class CrudLugar {
-    private $conexion; // Variable para almacenar la conexión a la base de datos
     private $model;
     // Constructor de la clase  se ejecuta al crear un objeto CrudLugar
     public function __construct($servername, $username, $password, $dbname) {
-        // Establece una conexion con la base de datos utilizando los datos proporcionados
-        $this->conexion = new mysqli($servername, $username, $password, $dbname);
-        $this->conexion->set_charset('UTF8'); // Configura la codificacion de caracteres
+
         $this->model = new ModelLugar($servername,$username,$password,$dbname);
-        // Verifica si la conexion a la base de datos falla y muestra un mensaje de error
-        if ($this->conexion->connect_error) {
-            die("Error de conexión: ".$this->conexion->connect_error);
-        }
     }
     // Método para agregar un lugar a la base de datos
     public function altaLugar($ip, $lugar, $descipcion) {
@@ -77,7 +70,7 @@ class CrudLugar {
         if ($this->model->deleteLugar($ip)) {
             $mensaje =  "Lugar borrado correctamente.";
         } else {
-            $mensaje = "Error al borrar Lugar: ".$this->conexion->error;
+            $mensaje = "Error al borrar Lugar";
         }
         return $mensaje; // Devuelve un mensaje indicando el resultado de la operación
     }
@@ -93,7 +86,7 @@ class CrudLugar {
                 $mensaje = "No se encontró un Lugar con la IP seleccionada.";
             }
         } else {
-            $mensaje = "Error al buscar Lugar: ".$this->conexion->error;
+            $mensaje = "Error al buscar Lugar";
         }
         return $mensaje; // Devuelve un mensaje indicando el resultado de la búsqueda
     }

@@ -84,7 +84,7 @@ class Visita {
                 FROM visita v INNER JOIN jesuita j ON v.idJesuita = j.idJesuita
                 GROUP BY v.idJesuita , j.nombre -- GROUP BY se utiliza para agrupar las filas de la tabla visita por los valores en las columnas idJesuita y nombre de la tabla jesuita.
                 ORDER BY total_visitas DESC
-                LIMIT 1;"; // Permitimos que únicamente nos devuelva un solo valore en orden descendente
+                LIMIT 1;"; // Permitimos que únicamente nos devuelva un solo valore en orden descendente para que así devuelva el máximo
         $result = $this->conexion->query($sql);
         if($result) {
             if ($result->num_rows > 0) {
@@ -104,7 +104,7 @@ class Visita {
                 FROM visita v INNER JOIN lugar l ON v.ip = l.ip 
                 GROUP BY v.ip , l.lugar -- GROUP BY se utiliza para agrupar las filas de la tabla visita por los valores en las columnas idJesuita y nombre de la tabla jesuita.
                 ORDER BY total_visitas DESC -- Ordenamos de manera descendente
-                LIMIT 1; -- Permitimos que únicamente nos devuelva un solo valore en orden descendente
+                LIMIT 1; -- Permitimos que únicamente nos devuelva un solo valore en orden descendente para que asi devuelva el máximo
                ";
         $result = $this->conexion->query($sql);
         if($result) {

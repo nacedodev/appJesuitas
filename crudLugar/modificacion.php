@@ -8,7 +8,7 @@
 <h1>Modificación del lugar</h1>
 <?php
 //Importamos los archivos necesarios
-require '../classes/crudLugar.php';
+require '../controllers/crudLugar.php';
 require '../config/configdb.php';
 //Creamos un nuevo objeto de la clase CrudLugar
     $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);

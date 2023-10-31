@@ -7,7 +7,7 @@
     <body id="modificar-form">
         <?php
         // incluimos los archivos necesarios
-        require '../classes/crudJesuita.php';
+        require '../controllers/crudJesuita.php';
         require '../config/configdb.php';
         // Si existe el submit...
         if (isset($_POST["buscar"])) {

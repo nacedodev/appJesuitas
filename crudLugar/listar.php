@@ -2,7 +2,7 @@
 <?php
 // Importamos los archivos necesarios
 require '../config/configdb.php';
-require '../classes/crudLugar.php';
+require '../controllers/crudLugar.php';
 // Creamos un nuevo objeto de la clase CrudLugar
 $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>

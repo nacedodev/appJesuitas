@@ -1,9 +1,9 @@
 <?php
 // Importamos los archivos necesarios...
 require '../config/configdb.php';
-require '../classes/visita.php';
-require '../classes/crudJesuita.php';
-require '../classes/crudLugar.php';
+require '../controllers/visita.php';
+require '../controllers/crudJesuita.php';
+require '../controllers/crudLugar.php';
 //Creamos los objetos necesarios para llevar a cabo la visita
 $crudJ = new CrudJesuita(HOST, USUARIO, PASSWORD, BASEDATOS); //Conecta con la base de datos
 $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);

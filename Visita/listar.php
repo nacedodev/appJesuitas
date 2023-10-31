@@ -1,7 +1,7 @@
 
 <?php
 require '../config/configdb.php';
-require '../classes/visita.php';
+require '../controllers/visita.php';
 $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,13 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     $row = $result->fetch_assoc();
 
     $jesuita = $row["nombre"];
-    $nVisitas = $row["total_visitas"];
+    $nVisitasJ = $row["total_visitas"];
+
+    $result = $crud->maxVisitasLugar();
+    $row = $result->fetch_assoc();
+
+    $lugar = $row["lugar"];
+    $nVisitasL = $row["total_visitas"];
 
     unset($crud);
     ?>
@@ -58,7 +64,15 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     </tr>
     <tr>
         <td><?php echo $jesuita?></td>
-        <td><?php echo $nVisitas?></td>
+        <td><?php echo $nVisitasJ?></td>
+    </tr>
+    <tr style="font-weight: bold">
+        <td>LUGAR MÁS VISITADO</td>
+        <td>NUMERO TOTAL DE VISITAS</td>
+    </tr>
+    <tr>
+        <td><?php echo $lugar?></td>
+        <td><?php echo $nVisitasL?></td>
     </tr>
 </table>
 <a href="main.html" id="volver">VOLVER</a>

@@ -1,6 +1,6 @@
 <?php
-require '../classes/visita.php';
-require '../classes/crudJesuita.php';
+require '../controllers/visita.php';
+require '../controllers/crudJesuita.php';
 require '../config/configdb.php';
 
     $visita = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);

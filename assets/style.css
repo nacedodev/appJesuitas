@@ -102,31 +102,31 @@ input[type="submit"]:hover {
 
 #alta-form{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 10px lightgreen;
-    transition: box-shadow 0.5s ease;
+    transition: filter 0.3s;
 }
 
 #alta-form:hover{
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 20px lawngreen;
+    filter: drop-shadow(0 0 0.8em lawngreen);
 }
 
 /* Estilos adicionales para el formulario de modificación */
 #modificar-form form{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 10px orange;
-    transition: box-shadow 0.5s ease;
+    transition: filter 0.3s;
 }
 
 #modificar-form form:hover{
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 20px darkorange;
+    filter: drop-shadow(0 0 0.8em darkorange);
 }
 
 /* Estilos adicionales para el formulario de borrado */
 #borrar-form {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 10px indianred;
-    transition: box-shadow 0.5s ease;
+    transition: filter 0.3s;
 }
 
 #borrar-form:hover{
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.214), 0 0 20px red;
+    filter: drop-shadow(0 0 0.8em red);
 }
 
 #procesos {
@@ -147,36 +147,39 @@ input[type="submit"]:hover {
     color: #fff;
     text-decoration: none;
     border-radius: 5px; /* Bordes redondeados */
-    transition: transform 0.3s;
     margin-top: 15px;
 }
 
 #procesos a:first-child{
     background-color:lightgreen;
-    box-shadow: 3px 3px 6px lawngreen;
+    box-shadow: 0 0 10px lawngreen;
+    transition: filter 0.3s;
+}
+
+#procesos a:first-child:hover{
+    filter: drop-shadow(0 0 0.8em lawngreen);
 }
 
 #procesos a:nth-child(2){
     background-color: indianred;
-    box-shadow: 3px 3px 6px crimson;
+    box-shadow: 0 0 10px crimson;
+    transition: filter 0.3s;
+}
+
+#procesos a:nth-child(2):hover{
+    filter: drop-shadow(0 0 0.8em crimson);
 }
 
 #procesos a:nth-child(3){
     background-color: orange;
-    box-shadow: 3px 3px 6px darkorange;
+    box-shadow: 0 0 10px darkorange;
+    transition: filter 0.3s
 }
 
-#procesos a:nth-child(4){
-    background-color: #3498db;
-    box-shadow: 3px 3px 6px #2577a9;
-
+#procesos a:nth-child(3):hover{
+    filter: drop-shadow(0 0 0.8em darkorange);
 }
 
-/* Cambia el tamaño al pasar el ratón por encima del botón */
-#procesos a:hover,
-#volver:hover{
-    transform: scale(1.02);
-}
 
 #volver{
     display: block;
@@ -184,19 +187,29 @@ input[type="submit"]:hover {
     color: #fff;
     text-decoration: none;
     border-radius: 5px; /* Bordes redondeados */
-    transition: transform 0.3s;
+    transition: filter 0.3s;
     background-color: lightcoral;
-    box-shadow: 2px 2px 5px coral;
+    box-shadow: 0 0 10px coral;
     width: 3rem;
     margin:20px auto;
     font-size: 12px;
     text-align: center;
 }
 
+#volver:hover{
+    filter: drop-shadow(0 0 1em coral);
+}
+
 #add{
     float:right;
     margin-right: 5px;
+    transition: filter 0.3s;
 }
+
+#add:hover {
+    filter: drop-shadow(0 0 4em lawngreen);
+}
+
 
 #result{
     width:30%;
@@ -208,4 +221,5 @@ input[type="submit"]:hover {
     background-color: lightgray;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    filter: drop-shadow(0 0 0.8em grey);
 }

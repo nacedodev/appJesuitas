@@ -9,8 +9,9 @@ class CrudLugar {
         $this->model = new ModelLugar($servername,$username,$password,$dbname);
     }
     // Método para agregar un lugar a la base de datos
-    public function altaLugar($ip, $lugar, $descipcion) {
-        // $descricpion no lleva comillas ya que se le añaden a la propia variable dependiendo si tiene contenido o no
+    public function altaLugar($ip, $lugar, $input) {
+
+        $descipcion= empty($input) ? "NULL" : "'".$input."'";
         try {
             if ($this->model->insertLugar($ip,$lugar,$descipcion)) {
                 $mensaje = "Lugar creado correctamente";

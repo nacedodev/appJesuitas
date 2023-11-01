@@ -8,8 +8,8 @@ require '../config/configdb.php';
     if ($accion === "Alta") {
         $ip = $_GET["ip"];
         $lugar = $_GET["lugar"];
-        $descripcion = empty($_GET["descripcion"]) ? "NULL" : "'".$_GET["descripcion"]."'";
-        $resultado = $crud->altaLugar($ip,$lugar,$descripcion);
+        $input = $_GET["descripcion"];
+        $resultado = $crud->altaLugar($ip,$lugar,$input);
 
     } elseif ($accion === "modificar") {
         $ip = $_GET["ip"];

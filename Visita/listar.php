@@ -47,6 +47,7 @@ $crud = new Visita(HOST, USUARIO, PASSWORD, BASEDATOS);
     $jesuita = $row["nombre"];
     $nVisitasJ = $row["total_visitas"];
 
+    // He buscado el lugar que al que se han realizado más visitas y he guardado los valores de nombre y nVisitas en variables que usare más adelate
     $result = $crud->maxVisitasLugar();
     $row = $result->fetch_assoc();
 

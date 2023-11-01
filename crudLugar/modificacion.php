@@ -29,7 +29,7 @@ require '../config/configdb.php';
 ?>
 <form method="GET" action="procesarForm.php">
     <label for="ip">IP:</label>
-    <input type="text" name="ip" value="<?php echo $ip; ?>">
+    <input  readonly type="text" name="ip" value="<?php echo $ip; ?>">
     <label for="lugar">Lugar:</label>
     <input type="text" name="lugar" value="<?php echo $lugar; ?>"><br>
 

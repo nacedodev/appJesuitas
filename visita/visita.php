@@ -1,4 +1,6 @@
 <?php
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 // Importamos los archivos necesarios...
 require '../config/configdb.php';
 require '../controllers/visita.php';
@@ -44,8 +46,8 @@ $crudL = new CrudLugar(HOST,USUARIO,PASSWORD,BASEDATOS);
         ?>
     </select>
 
-    <label for="firma">Que lugar te gustaría visitar:</label>
-    <select id="firma" name="lugar">
+    <label for="lugar">Que lugar te gustaría visitar:</label>
+    <select id="lugar" name="lugar">
         <?php
         // Acedemos al meetodo que nos permite listar todos los nombres de todos los lugares
         $result = $crudL->nombreLugares();

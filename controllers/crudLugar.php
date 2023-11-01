@@ -67,11 +67,19 @@ class CrudLugar {
     }
     // Método para eliminar un lugar de la base de datos
     public function borrarLugar($ip) {
-
-        if ($this->model->deleteLugar($ip)) {
-            $mensaje =  "Lugar borrado correctamente.";
-        } else {
-            $mensaje = "Error al borrar Lugar";
+        try {
+            if ($this->model->deleteLugar($ip)) {
+                $mensaje =  "Lugar borrado correctamente.";
+            } else {
+                $mensaje = "Error al borrar Lugar";
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Verifica si el error es debido a una FK
+            if ($e->getCode() === 1451) {
+                $mensaje = "El lugar tiene una visita asociada , no se puede eliminar";
+            } else {
+                $mensaje = "Error: ". $e->getMessage();
+            }
         }
         return $mensaje; // Devuelve un mensaje indicando el resultado de la operación
     }

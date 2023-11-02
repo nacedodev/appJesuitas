@@ -1,7 +1,10 @@
 <?php
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 require '../config/configdb.php';
 class ModelLugar{
     private $conexion; // Variable para almacenar la conexión a la base de datos
+    private $driver;
 
     // Constructor de la clase  se ejecuta al crear un objeto CrudLugar
     public function __construct($servername, $username, $password, $dbname)
@@ -9,6 +12,9 @@ class ModelLugar{
         // Establece una conexion con la base de datos utilizando los datos proporcionados
         $this->conexion = new mysqli($servername, $username, $password, $dbname);
         $this->conexion->set_charset('UTF8'); // Configura la codificacion de caracteres
+        // Activamos los errores
+        $this->driver = new mysqli_driver();
+        $this->driver->report_mode = MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT;
         // Verifica si la conexion a la base de datos falla y muestra un mensaje de error
         if ($this->conexion->connect_error) {
             die("Error de conexión: " . $this->conexion->connect_error);

@@ -11,7 +11,7 @@
 require '../controllers/crudLugar.php';
 require '../config/configdb.php';
 //Creamos un nuevo objeto de la clase CrudLugar
-    $crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
+$crud = new CrudLugar(HOST, USUARIO, PASSWORD, BASEDATOS);
 // Extraemos el valor de la IP pasada por URL
     $ip = $_GET["ip"];
 // Usamos un método del objeto para buscar el lugar asociado a esa IP
